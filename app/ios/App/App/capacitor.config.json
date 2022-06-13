@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "tandem",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
