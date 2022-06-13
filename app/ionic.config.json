@@ -1,0 +1,7 @@
+{
+  "name": "tandem",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
