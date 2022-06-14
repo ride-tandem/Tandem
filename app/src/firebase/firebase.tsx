@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp, FirebaseError } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from "firebase/auth";
+import { FirebaseAuthentication } from "@capacitor-firebase/authentication";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,26 +21,14 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
-export const registerWithEmailAndPassword = async (
+export const createUserWithEmailAndPassword = async (
   email: string,
   password: string
 ) => {
-  try {
-    const res = await createUserWithEmailAndPassword(auth, email, password);
-    const user = res.user;
-    console.log(user);
-    // TODO: Add users to Firestore database
-    // await setUser({
-    //   uid: user.uid,
-    //   name: name,
-    //   authProvider: "local",
-    //   email: email,
-    // });
-  } catch (err) {
-    if (err instanceof FirebaseError) {
-      console.log("TODO: Fix error handling");
-    } else {
-      console.log(err);
-    }
-  }
+  const result = await FirebaseAuthentication.createUserWithEmailAndPassword({
+    email,
+    password,
+  });
+  console.log(result.user);
+  return result.user;
 };

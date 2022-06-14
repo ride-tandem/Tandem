@@ -9,7 +9,7 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import { useState } from "react";
-import { registerWithEmailAndPassword } from "../firebase/firebase";
+import { createUserWithEmailAndPassword } from "../firebase/firebase";
 import "./Tab1.css";
 
 const Tab1: React.FC = () => {
@@ -17,7 +17,7 @@ const Tab1: React.FC = () => {
   const [password, setPassword] = useState("");
 
   const registerUser = () => {
-    registerWithEmailAndPassword(email, password);
+    createUserWithEmailAndPassword(email, password);
   };
 
   return (
