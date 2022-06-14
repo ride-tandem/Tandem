@@ -1,23 +1,56 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Tab1.css';
+import {
+  IonButton,
+  IonHeader,
+  IonInput,
+  IonItem,
+  IonLabel,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
+import { useState } from "react";
+import "./Tab1.css";
 
 const Tab1: React.FC = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const registerUser = () => {
+    console.log(email, password);
+  };
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Tab 1</IonTitle>
+          <IonTitle>Registration</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 1</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="Tab 1 page" />
-      </IonContent>
+      <IonHeader collapse="condense">
+        <IonToolbar>
+          <IonTitle size="large">Tab 1</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+
+      <IonItem>
+        <IonLabel position="floating">Email</IonLabel>
+        <IonInput
+          type="email"
+          onIonChange={(e) => setEmail(e.detail.value || "")}
+          autofocus
+          required
+        />
+      </IonItem>
+      <IonItem>
+        <IonLabel position="floating">Password</IonLabel>
+        <IonInput
+          type="password"
+          onIonChange={(e) => setPassword(e.detail.value || "")}
+          minlength={8}
+          required
+        />
+      </IonItem>
+      <IonButton onClick={registerUser}>Register</IonButton>
     </IonPage>
   );
 };
