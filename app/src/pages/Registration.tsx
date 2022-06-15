@@ -11,10 +11,9 @@ import {
 } from "@ionic/react";
 import { useState } from "react";
 import { registerUserWithEmailAndPassword } from "../firebase/firebase";
-import "./Tab1.css";
 
-const Tab1: React.FC = () => {
-  const [present, dismiss] = useIonToast();
+const Registration: React.FC = () => {
+  const [present] = useIonToast();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -59,4 +58,4 @@ const Tab1: React.FC = () => {
   );
 };
 
-export default Tab1;
+export default Registration;
