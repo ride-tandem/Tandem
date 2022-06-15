@@ -14,9 +14,5 @@
 	{
 		"pkg": "@capacitor/status-bar",
 		"classpath": "com.capacitorjs.plugins.statusbar.StatusBarPlugin"
-	},
-	{
-		"pkg": "@capacitor-firebase/app",
-		"classpath": "dev.robingenz.capacitorjs.plugins.firebase.app.FirebaseAppPlugin"
 	}
 ]

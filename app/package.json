@@ -68,7 +68,6 @@
     ]
   },
   "devDependencies": {
-    "@capacitor-firebase/app": "^0.3.1",
     "@capacitor/cli": "3.5.1",
     "firebase": "^9.8.3"
   },
