@@ -7,17 +7,19 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  useIonToast,
 } from "@ionic/react";
 import { useState } from "react";
 import { registerUserWithEmailAndPassword } from "../firebase/firebase";
-import "./Tab1.css";
 
-const Tab1: React.FC = () => {
+const Registration: React.FC = () => {
+  const [present] = useIonToast();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const registerUser = () => {
     registerUserWithEmailAndPassword(email, password);
+    present("User Registered", 1500);
   };
 
   return (
@@ -56,4 +58,4 @@ const Tab1: React.FC = () => {
   );
 };
 
-export default Tab1;
+export default Registration;

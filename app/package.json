@@ -45,6 +45,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "emulators": "firebase emulators:start --import=./emulator-data --export-on-exit",
     "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
     "eject": "react-scripts eject"
   },
@@ -67,7 +68,6 @@
     ]
   },
   "devDependencies": {
-    "@capacitor-firebase/app": "^0.3.1",
     "@capacitor/cli": "3.5.1",
     "firebase": "^9.8.3"
   },

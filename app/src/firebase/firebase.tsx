@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp, FirebaseError } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -13,9 +13,18 @@ const firebaseConfig = {
   storageBucket: "ride-tandem.appspot.com",
   messagingSenderId: "747191339451",
   appId: "1:747191339451:web:8eeb271e3492a593325c9e",
-  measurementId: "G-FLWVXKHV6X"
+  measurementId: "G-FLWVXKHV6X",
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+
+export const registerUserWithEmailAndPassword = async (
+  email: string,
+  password: string
+) => {
+  const result = await createUserWithEmailAndPassword(auth, email, password);
+  console.log(result.user);
+  return result.user;
+};
