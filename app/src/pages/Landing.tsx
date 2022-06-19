@@ -1,10 +1,12 @@
 import {
+  IonButton,
   IonContent,
   IonHeader,
   IonPage,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
+import { logout } from "../firebase/firebase";
 
 const Tab3: React.FC = () => {
   return (
@@ -20,6 +22,7 @@ const Tab3: React.FC = () => {
             <IonTitle size="large">Welcome to Tandem!</IonTitle>
           </IonToolbar>
         </IonHeader>
+        <IonButton onClick={logout}>Logout</IonButton>
       </IonContent>
     </IonPage>
   );
