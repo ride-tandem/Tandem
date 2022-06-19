@@ -7,24 +7,26 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  useIonToast,
 } from "@ionic/react";
 import { useState } from "react";
-import { registerUserWithEmailAndPassword } from "../firebase/firebase";
-import "./Tab1.css";
+import { loginWithEmailAndPassword } from "../firebase/firebase";
 
-const Tab1: React.FC = () => {
+const Login: React.FC = () => {
+  const [present] = useIonToast();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const registerUser = () => {
-    registerUserWithEmailAndPassword(email, password);
+  const handleLogin = () => {
+    loginWithEmailAndPassword(email, password);
+    present("Login Successful", 1500);
   };
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Registration</IonTitle>
+          <IonTitle>Login</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonHeader collapse="condense">
@@ -51,9 +53,10 @@ const Tab1: React.FC = () => {
           required
         />
       </IonItem>
-      <IonButton onClick={registerUser}>Register</IonButton>
+      <IonButton routerLink="/registration">Not a member?</IonButton>
+      <IonButton onClick={handleLogin}>Login</IonButton>
     </IonPage>
   );
 };
 
-export default Tab1;
+export default Login;

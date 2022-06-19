@@ -53,6 +53,8 @@ const Registration: React.FC = () => {
           required
         />
       </IonItem>
+
+      <IonButton routerLink="/login">Already a member?</IonButton>
       <IonButton onClick={registerUser}>Register</IonButton>
     </IonPage>
   );
