@@ -54,7 +54,9 @@ const Login: React.FC = () => {
         />
       </IonItem>
       <IonButton routerLink="/registration">Not a member?</IonButton>
-      <IonButton onClick={handleLogin}>Login</IonButton>
+      <IonButton onClick={handleLogin} routerLink="/landing">
+        Login
+      </IonButton>
     </IonPage>
   );
 };
