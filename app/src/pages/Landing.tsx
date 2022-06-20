@@ -4,9 +4,9 @@ import {
   IonHeader,
   IonPage,
   IonTitle,
-  IonToolbar,
-} from "@ionic/react";
-import { logout } from "../firebase/firebase";
+  IonToolbar
+} from '@ionic/react'
+import { logout } from '../firebase/firebase'
 
 const Tab3: React.FC = () => {
   return (
@@ -17,15 +17,15 @@ const Tab3: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
+        <IonHeader collapse='condense'>
           <IonToolbar>
-            <IonTitle size="large">Welcome to Tandem!</IonTitle>
+            <IonTitle size='large'>Welcome to Tandem!</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonButton onClick={logout}>Logout</IonButton>
       </IonContent>
     </IonPage>
-  );
-};
+  )
+}
 
-export default Tab3;
+export default Tab3
