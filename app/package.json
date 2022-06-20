@@ -55,6 +55,16 @@
       "react-app/jest"
     ]
   },
+  "ts-standard": {
+    "env": [
+      "jest",
+      "es6",
+      "browser"
+    ],
+    "files": [
+      "src"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
