@@ -21,3 +21,6 @@ jobs:
       - name: Build Frontend
         working-directory: ./app
         run: npm ci && CI=false npm run build
+      - name: Test frontend
+        working-directory: ./app
+        run: CI=false npm run test
