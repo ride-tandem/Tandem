@@ -7,20 +7,20 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-  useIonToast,
-} from "@ionic/react";
-import { useState } from "react";
-import { registerUserWithEmailAndPassword } from "../firebase/firebase";
+  useIonToast
+} from '@ionic/react'
+import { useState } from 'react'
+import { registerUserWithEmailAndPassword } from '../firebase/firebase'
 
 const Registration: React.FC = () => {
-  const [present] = useIonToast();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [present] = useIonToast()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const registerUser = () => {
-    registerUserWithEmailAndPassword(email, password);
-    present("User Registered", 1500);
-  };
+    registerUserWithEmailAndPassword(email, password)
+    present('User Registered', 1500)
+  }
 
   return (
     <IonPage>
@@ -29,35 +29,35 @@ const Registration: React.FC = () => {
           <IonTitle>Registration</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonHeader collapse="condense">
+      <IonHeader collapse='condense'>
         <IonToolbar>
-          <IonTitle size="large">Tab 1</IonTitle>
+          <IonTitle size='large'>Tab 1</IonTitle>
         </IonToolbar>
       </IonHeader>
 
       <IonItem>
-        <IonLabel position="floating">Email</IonLabel>
+        <IonLabel position='floating'>Email</IonLabel>
         <IonInput
-          type="email"
-          onIonChange={(e) => setEmail(e.detail.value || "")}
+          type='email'
+          onIonChange={(e) => setEmail(e.detail.value || '')}
           autofocus
           required
         />
       </IonItem>
       <IonItem>
-        <IonLabel position="floating">Password</IonLabel>
+        <IonLabel position='floating'>Password</IonLabel>
         <IonInput
-          type="password"
-          onIonChange={(e) => setPassword(e.detail.value || "")}
+          type='password'
+          onIonChange={(e) => setPassword(e.detail.value || '')}
           minlength={8}
           required
         />
       </IonItem>
 
-      <IonButton routerLink="/login">Already a member?</IonButton>
+      <IonButton routerLink='/login'>Already a member?</IonButton>
       <IonButton onClick={registerUser}>Register</IonButton>
     </IonPage>
-  );
-};
+  )
+}
 
-export default Registration;
+export default Registration
