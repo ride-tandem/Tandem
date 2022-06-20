@@ -17,9 +17,9 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleLogin = () => {
-    loginWithEmailAndPassword(email, password)
-    present('Login Successful', 1500)
+  const handleLogin = (): void => {
+    void loginWithEmailAndPassword(email, password)
+    void present('Login Successful', 1500)
   }
 
   return (
@@ -39,7 +39,7 @@ const Login: React.FC = () => {
         <IonLabel position='floating'>Email</IonLabel>
         <IonInput
           type='email'
-          onIonChange={(e) => setEmail(e.detail.value || '')}
+          onIonChange={(e) => setEmail(e.detail.value ?? '')}
           autofocus
           required
         />
@@ -48,7 +48,7 @@ const Login: React.FC = () => {
         <IonLabel position='floating'>Password</IonLabel>
         <IonInput
           type='password'
-          onIonChange={(e) => setPassword(e.detail.value || '')}
+          onIonChange={(e) => setPassword(e.detail.value ?? '')}
           minlength={8}
           required
         />

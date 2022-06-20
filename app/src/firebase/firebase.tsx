@@ -4,7 +4,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
+  User
 } from 'firebase/auth'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -28,7 +29,7 @@ export const auth = getAuth(app)
 export const registerUserWithEmailAndPassword = async (
   email: string,
   password: string
-) => {
+): Promise<User> => {
   const result = await createUserWithEmailAndPassword(auth, email, password)
   console.log(result.user)
   return result.user
@@ -37,7 +38,7 @@ export const registerUserWithEmailAndPassword = async (
 export async function loginWithEmailAndPassword (
   email: string,
   password: string
-) {
+): Promise<void> {
   try {
     await signInWithEmailAndPassword(auth, email, password)
   } catch (err) {
@@ -49,6 +50,6 @@ export async function loginWithEmailAndPassword (
   }
 }
 
-export const logout = () => {
-  signOut(auth)
+export const logout = (): void => {
+  signOut(auth).catch(() => {})
 }
