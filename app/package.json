@@ -46,7 +46,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "emulators": "firebase emulators:start --import=./emulator-data --export-on-exit",
-    "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
+    "test": "npx ts-standard && react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
