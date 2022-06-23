@@ -5,7 +5,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  User
+  User,
+  connectAuthEmulator,
 } from 'firebase/auth'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,6 +26,11 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
+
+if (window.location.hostname === "localhost") {
+  console.log("Starting on localhost");
+  connectAuthEmulator(auth, "http://localhost:9099", { disableWarnings: true });
+}
 
 export const registerUserWithEmailAndPassword = async (
   email: string,
