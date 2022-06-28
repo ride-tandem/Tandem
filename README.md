@@ -26,7 +26,7 @@ Check out our live application page at: <a href="https://ride-tandem.ca">ride-ta
 
 Contact us with a bug or suggestion by making an issue.
 
-Checkout [who built this](https://github.com/CobeyH/SENG-480A/wiki/Team-Contributions) application on our [wiki](https://github.com/CobeyH/SENG-480A/wiki)
+Checkout our [wiki](https://github.com/ride-tandem/Tandem/wiki)
 
 # Contributing
 
@@ -67,16 +67,6 @@ This application uses Firebase services that need to be emulated locally. Run `n
 
 To start developing run `npm start`. This should open your default browser to the application. Change a file and save it and the application should reload.
 
-## Setting Up Testing
+# License
 
-This project is tested using Cypress. The tests can be run locally by linking to the Firebase emulators.
-
-To begin, create a new service account in the firebase console. Add the path to your serviceAccount.json file into your `GOOGLE_APPLICATION_CREDENTIALS` environment variable.
-
-You will also need the UID of a testing user to authenticate your tests. Create a `cypress.env.json` file and add the UID of your user to the `TEST_UID` json key.
-
-### Running the tests
-
-First run `npm run emulators:CI` to run the emulators using the testing data in cypress-emulator-data.
-Next run `npm start` to start the application.
-Finally run `npm run cypress` to start cypress and select the spec files you want to test.
+We're GPL-3.0 licensed, if you don't like the license in [its full glory](https://www.gnu.org/licenses/gpl-3.0.en.html), [this](https://choosealicense.com/licenses/gpl-3.0/) is a nice synopsis.
