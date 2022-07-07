@@ -9,7 +9,9 @@ import {
   IonToolbar,
   useIonToast
 } from '@ionic/react'
+import { getAuth } from 'firebase/auth'
 import { useState } from 'react'
+import { getUser } from '../firebase/database'
 import { loginWithEmailAndPassword } from '../firebase/firebase'
 
 const Login: React.FC = () => {
@@ -18,8 +20,13 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState('')
 
   const handleLogin = (): void => {
-    void loginWithEmailAndPassword(email, password)
-    void present('Login Successful', 1500)
+    void loginWithEmailAndPassword(email, password).then(() => {
+      const userId = getAuth().currentUser?.uid
+      if (userId != null) {
+        void getUser(userId)
+          .then(async val => await present('Login Successful: ' + val.name, 1500))
+      }
+    })
   }
 
   return (
