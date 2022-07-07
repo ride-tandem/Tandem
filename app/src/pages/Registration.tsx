@@ -10,7 +10,8 @@ import {
   useIonToast
 } from '@ionic/react'
 import { useState } from 'react'
-import { registerUserWithEmailAndPassword } from '../firebase/firebase'
+import { setUser } from '../firebase/database'
+import { AUTH_PROVIDER_EMAIL, registerUserWithEmailAndPassword } from '../firebase/firebase'
 
 const Registration: React.FC = () => {
   const [present] = useIonToast()
@@ -19,6 +20,17 @@ const Registration: React.FC = () => {
 
   const registerUser = (): void => {
     void registerUserWithEmailAndPassword(email, password)
+      .then(user => {
+        if (user.uid != null && user.uid.length > 0) {
+          const userName = user.displayName != null ? user.displayName : email
+          void setUser({
+            id: user.uid,
+            name: userName,
+            email: email,
+            authProvider: AUTH_PROVIDER_EMAIL
+          })
+        } else { console.log('Error: auth has no uid.') }
+      })
     void present('User Registered', 1500)
   }
 

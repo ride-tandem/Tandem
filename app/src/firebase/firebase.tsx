@@ -9,6 +9,7 @@ import {
   connectAuthEmulator
 } from 'firebase/auth'
 import {
+  connectFirestoreEmulator,
   getFirestore
 } from 'firebase/firestore'
 
@@ -35,7 +36,10 @@ export const db = getFirestore(app)
 if (window.location.hostname === 'localhost') {
   console.log('Starting on localhost')
   connectAuthEmulator(auth, 'http://localhost:9099', { disableWarnings: true })
+  connectFirestoreEmulator(db, 'localhost', 8080)
 }
+
+export const AUTH_PROVIDER_EMAIL = 'email'
 
 export const registerUserWithEmailAndPassword = async (
   email: string,

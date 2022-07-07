@@ -1,5 +1,5 @@
 import { db } from './firebase'
-import { doc, collection, addDoc, getDoc } from 'firebase/firestore'
+import { doc, getDoc, setDoc } from 'firebase/firestore'
 
 /** DATA MODEL
 - users
@@ -21,10 +21,10 @@ export interface User {
   email: string
 }
 
-export const addUser = async (user: Omit<User, 'id'>): Promise<string> => {
+export const setUser = async (user: User): Promise<string> => {
   return await new Promise((resolve, reject) => {
-    addDoc(collection(db, DB_COL_USERS), user)
-      .then(val => resolve(val.id))
+    setDoc(doc(db, DB_COL_USERS, user.id), user)
+      .then(() => resolve(user.id))
       .catch(err => reject(err))
   })
 }
